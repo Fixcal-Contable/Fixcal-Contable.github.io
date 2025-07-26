@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mí - Fiscalidad al Día</title>
+    <meta name="description" content="Conoce a Jonathan Lugo González, el experto detrás de Fiscalidad al Día.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        body { font-family: 'Lato', sans-serif; background-color: #f8f9fa; }
+        .text-fiscal-blue { color: #0D2B4E; }
+        .bg-fiscal-blue { background-color: #0D2B4E; }
+        .text-fiscal-green { color: #2A9D8F; }
+        .bg-fiscal-green { background-color: #2A9D8F; }
+        .content-section h3 { font-size: 1.75rem; font-weight: 700; color: #0D2B4E; margin-top: 2.5rem; margin-bottom: 1rem; border-bottom: 2px solid #2A9D8F; padding-bottom: 0.5rem; }
+        .content-section p { margin-bottom: 1rem; line-height: 1.75; }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Header y Navegación -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-fiscal-blue"><i class="fa-solid fa-scale-balanced mr-2"></i>Fiscalidad al Día</a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="index.html" class="text-gray-600 hover:text-fiscal-green transition">Inicio</a>
+                <a href="about.html" class="text-fiscal-blue font-semibold hover:text-fiscal-green transition">Sobre mí</a>
+                <a href="contact.html" class="bg-fiscal-green text-white px-4 py-2 rounded-md hover:bg-fiscal-blue transition">Contacto</a>
+            </div>
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-600 focus:outline-none"><i class="fa-solid fa-bars text-2xl"></i></button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <a href="index.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Inicio</a>
+            <a href="about.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Sobre mí</a>
+            <a href="contact.html" class="block py-2 px-6 text-gray-600 hover:bg-gray-100">Contacto</a>
+        </div>
+    </header>
+
+    <!-- Contenido "Sobre mí" -->
+    <main class="container mx-auto px-6 py-12">
+        <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-lg shadow-lg">
+            <div class="text-center">
+                <img src="https://placehold.co/200x200/2A9D8F/FFFFFF?text=JLG" alt="Foto de Jonathan Lugo González" class="w-48 h-48 rounded-full mx-auto object-cover shadow-md mb-6">
+                <h1 class="text-4xl font-bold text-fiscal-blue mb-2">Jonathan Lugo González</h1>
+                <p class="text-lg text-fiscal-green font-semibold">Fundador de Fiscalidad al Día</p>
+            </div>
+            
+            <div class="content-section text-lg text-gray-700 mt-8">
+                <h3>Mi Misión</h3>
+                <p>¡Hola! Soy Jonathan, y he creado "Fiscalidad al Día" con un objetivo claro: desmitificar el complejo mundo de los impuestos. Con más de [Número] años de experiencia en asesoría fiscal a empresas y particulares, he visto de primera mano la necesidad de información fiable, actual y, sobre todo, fácil de entender.</p>
+                
+                <h3>Mi Filosofía</h3>
+                <p>Creo firmemente que un buen entendimiento de nuestras obligaciones y derechos fiscales es una herramienta poderosa para la toma de decisiones financieras, tanto a nivel personal como empresarial. Mi misión es traducir la densa jerga legal y los constantes cambios normativos en consejos prácticos y accionables. Quiero empoderar a mis lectores para que naveguen el sistema tributario con confianza y seguridad.</p>
+
+                <h3>Experiencia Profesional</h3>
+                <p>A lo largo de mi carrera, he tenido el privilegio de trabajar en [Tipo de empresa o sector, ej: una consultora Big Four, despachos de abogados, como asesor independiente...]. Me he especializado en [Tu área de especialización, ej: fiscalidad internacional, planificación del IRPF, IVA y tributación de startups...]. Esta experiencia me ha dado una visión 360 grados de los retos a los que se enfrentan los contribuyentes hoy en día.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pie de Página -->
+    <footer class="bg-fiscal-blue text-white mt-12">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <p>&copy; 2025 Fiscalidad al Día. Todos los derechos reservados.</p>
+                <div class="flex mt-4 md:mt-0 space-x-6">
+                    <a href="https://github.com/TU_USUARIO_DE_GITHUB" target="_blank" class="hover:text-fiscal-green transition"><i class="fab fa-github fa-lg"></i></a>
+                    <a href="https://linkedin.com/in/TU_USUARIO_DE_LINKEDIN" target="_blank" class="hover:text-fiscal-green transition"><i class="fab fa-linkedin fa-lg"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+</html>
