@@ -1,2 +1,2 @@
-# MI BLOG PERSONAL CON IDEAS DE IA
+# Curriculum innovador
 Vamos a comenzar una idea muy interesante
