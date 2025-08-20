@@ -1,0 +1,189 @@
+:root{
+      --bg:#0e1116;            /* fondo oscuro estilo IDE */
+      --panel:#0b0e13;         /* panel izquierdo */
+      --text:#e6edf3;          /* texto base */
+      --muted:#8b949e;         /* comentarios */
+      --accent:#7ee787;        /* comentarios resaltados */
+      --kw:#79c0ff;            /* mots‑clés */
+      --type:#d2a8ff;          /* types/clases */
+      --str:#ffd68a;           /* strings */
+      --num:#ffa657;           /* numbers */
+      --sec:#7aa2f7;           /* títulos secciones */
+      --line:#1f6feb;          /* líneas y enlaces */
+      --chip:#161b22;          /* chips/lists */
+      --chip-b:#30363d;        /* borde chips */
+    }
+
+    @media print {
+      /* --- Estrategia Final: Forzar Layout y Escalar para Una Sola Página --- */
+
+      @page {
+        size: letter;
+        margin: 0; /* Sin márgenes, el escalado crea el espaciado */
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background: var(--bg);
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .toolbar {
+        display: none !important;
+      }
+
+      .page {
+        /* 1. Forzar dimensiones de escritorio */
+        width: 1024px;
+        
+        /* 2. Escalar todo para que quepa en la hoja */
+        transform: scale(0.9);
+        transform-origin: top left;
+
+        /* 3. Resetear estilos y asegurar que no haya desbordamiento */
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        overflow: hidden; /* Muy importante para cortar cualquier exceso */
+      }
+
+      /* 4. Forzar el layout de dos columnas, anulando el diseño responsivo */
+      .grid {
+        display: grid !important;
+        grid-template-columns: 320px 1fr !important;
+        min-height: 1000px !important; /* Restaurar la altura original para mantener el diseño */
+        height: auto;
+      }
+
+      .left {
+        border-right: 1px solid #1f2328 !important;
+        border-bottom: none !important;
+      }
+      
+      .kv {
+        grid-template-columns: 220px 1fr !important;
+      }
+    }
+
+    *{ box-sizing:border-box; }
+    body{ margin:0; background:var(--bg); color:var(--text); font-family: Consolas, Menlo, "Fira Code", ui-monospace, SFMono-Regular, Monaco, "Liberation Mono", monospace; }
+
+    .page{ max-width: 1024px; margin: 24px auto; background: linear-gradient(180deg,var(--panel),var(--bg)); border:1px solid #1f2328; border-radius:16px; overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,.45); }
+
+    .grid{ display:grid; grid-template-columns: 320px 1fr; min-height: 1000px; }
+
+    .left{ background: var(--panel); border-right: 1px solid #1f2328; padding:20px; }
+    .right{ padding:24px; }
+
+    /* Marco con padding interno para la foto */
+    .photo-frame {
+      width: 100%;
+      aspect-ratio: 1 / 1;         /* Mantiene la proporción cuadrada */
+      border-radius: 14px;         /* Bordes redondeados */
+      border: 2px solid #232a33;   /* marco exterior */
+      padding: 8px;                /* margen interno visible */
+      background: #0b0e13;         /* fondo detrás de la foto */
+      overflow: hidden;            /* recorta lo que sobresalga */
+      display: flex;               /* centra la imagen */
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;           /* ajusta sin deformar, recortando */
+      border-radius: 10px;         /* Esquina interna más suave */
+    }
+
+    /* secciones tipo código */
+    .section{ margin: 10px 0 18px; }
+    .section .head{ color:var(--sec); font-weight:600; }
+    .left .section .head { font-size: 12px; }
+    .brace{ color:#9da4ae; }
+    .items{ margin-left:16px; padding-left:12px; border-left:2px solid #1f2328; }
+    .left .items p { font-size: 10px; } /* Regla específica para texto en barra izquierda */
+
+    .chiplist{ display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; list-style-type: none; padding-left: 0; margin-left: 28px; }
+    .chip{ background:var(--chip); border:1px solid var(--chip-b); padding:4px 8px; border-radius:10px; font-size:11px; color:#c9d1d9; }
+
+    /* tokens de sintaxis */
+    .cmt{ color:var(--accent); }
+    .muted{ color:var(--muted); }
+    .kw{ color:var(--kw); }
+    .type{ color:var(--type); }
+    .str{ color:var(--str); }
+    .num{ color:var(--num); }
+    .id{ color:#c9d1d9; }
+    .fn{ color:#a5d6ff; }
+
+    .block{ margin: 8px 0 18px; padding:14px; background: rgba(255,255,255,0.02); border:1px solid #1f2328; border-radius:12px; }
+
+    .kv{ display:grid; grid-template-columns: 220px 1fr; gap:6px 12px; font-size: 12px; }
+    .kv div{ padding:2px 0; }
+    .kv .key{ color:#9da4ae; }
+    .kv .val{ color:#dfe6ee; }
+
+    a{ color:var(--line); text-decoration:none; }
+    a:hover{ text-decoration:underline; }
+
+    .toolbar{ display:flex; justify-content:space-between; align-items:center; padding:10px 16px; border-bottom:1px solid #1f2328; background:#0b0e13; position:sticky; top:0; z-index:5; }
+    .btn{ border:1px solid #2c313a; background:#10151d; color:#c9d1d9; padding:6px 10px; border-radius:10px; cursor:pointer; font-size:12px; }
+    .btn:hover{ background:#0d141d; }
+
+    .cols{ columns: 2; column-gap: 18px; }
+    .cols p{ break-inside: avoid; margin:6px 0; }
+
+    .h2{ color:var(--sec); font-weight:700; margin: 10px 0 4px; font-size: 12px; }
+    .para{ color:#c9d1d9; line-height:1.35; font-size: 12px; }
+
+    .topcmt{ color:var(--accent); padding: 6px 12px; border-left:3px solid var(--accent); margin-bottom:10px; }
+
+/* --- Diseño Responsivo --- */
+@media (max-width: 768px) {
+  .page {
+    margin: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+  }
+
+  .grid {
+    /* Cambia el layout a una sola columna */
+    grid-template-columns: 1fr;
+    min-height: auto; /* Altura automática */
+  }
+
+  .left {
+    border-right: none;
+    border-bottom: 1px solid #1f2328; /* Separador visual */
+  }
+
+  .toolbar {
+    padding: 8px 12px;
+  }
+  
+  .toolbar .btn {
+    padding: 5px 8px;
+    font-size: 11px;
+  }
+
+  .left, .right {
+    padding: 16px;
+  }
+
+  .kv {
+    /* Apila clave y valor en pantallas pequeñas */
+    grid-template-columns: 1fr;
+    gap: 2px 12px;
+  }
+  
+  .kv .val {
+    /* Añade un pequeño margen para separar del siguiente key */
+    margin-bottom: 8px;
+  }
+}
